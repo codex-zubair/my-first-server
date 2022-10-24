@@ -7,12 +7,23 @@ const port = 5000;
 
 
 app.get('/', (req, res) => {
-    res.send("hello world from node!") 
+    res.send("hello world from node!!2!!") 
 });
 
 
 app.get('/phones', (req, res)=> {
     res.send(phones);
+});
+
+
+
+app.get('/phones/:id',(req,res)=> {
+
+    const id = parseInt(req.params.id);
+    const phone = phones.find(ph=> ph.id === id) || {}
+    res.send(phone);
+    
+
 })
 
 
